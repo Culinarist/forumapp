@@ -1,0 +1,56 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+<style>
+      body {
+        padding-top: 60px;
+      }
+      textarea {
+          padding-bottom: 200px;
+      }
+      #logoutButton {
+          padding-top: 10px;
+          padding-left: 10px;
+      }
+</style>
+
+<div class="container" >
+   <div class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+         <div class="pull-right">
+            <p class="brand">Super fancy!</p>
+         </div>
+         <div id="logoutButton" class="pull-left">
+            <p><a href="#!/login" class="btn btn-primary">Logout</a></p>
+         </div>
+      </div>
+   </div>
+   <div class="page-header">
+      <h1>Sami's Forum</h1>
+   </div>
+   <div class="row">
+      <div class="span9">
+         <table class="table table-striped table-bordered">
+            <thead>
+               <tr>
+                  <th class="span6">Topics</th>
+                  <th class="span3">Created</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr ng-click="vm.topicClick()" ng-repeat="topic in vm.topics">
+                  <td class="span7" >{{topic.name}}</td>
+                  <td class="span2" >{{topic.createdAt}}</td>
+               </tr>
+            </tbody>
+         </table>
+         <div class="row controls">
+            <form ng-submit="vm.send()">
+               <div class="span8"><input type="text" class="input-block-level" ng-model="vm.topic.title" placeholder="Your title"></div><br></br>
+               <div class="span8"><textarea class="input-block-level" ng-model="vm.topic.msg" placeholder="Your message" ></textarea></div>
+               <div class="span1"><input type="submit" class="span1 btn btn-primary" value="Send" ></div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
